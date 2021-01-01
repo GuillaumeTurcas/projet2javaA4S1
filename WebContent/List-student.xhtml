@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+ <f:metadata>
+ <f:event type="preRenderView"
+ listener="#{studentManager.loadStudent()}"/>
+</f:metadata>
+
+<h:head> 
+	<title><ui:insert name = "title">Students List </ui:insert></title>
+</h:head>
+
+<h:body>
+	<div id="container">
+		<div id="header">
+			<h2>ESILV Engineering School</h2>
+		</div>
+	</div>
+	<div id="container">
+	<h:form>
+		<h2>List of Students</h2>
+		
+		<h:dataTable value="#{studentManager.getList()}" var="tempStudent">
+
+			<h:column>
+				<f:facet name="header">ID</f:facet>
+				<h:outputText value="#{tempStudent.id}"/>
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">First Name</f:facet>
+				<h:outputText value="#{tempStudent.firstName}"/>
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Last Name</f:facet>
+				<h:outputText value="#{tempStudent.lastName}"/>
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Email</f:facet>
+				<h:outputText value="#{tempStudent.email}"/>
+			</h:column>
+
+			<h:column>
+        <f:facet name="header">Action</f:facet>
+        <h:commandLink value="Edit" action="#{studentManager.loadStudent(tempStudent.id)}"/>
+        |
+        <h:commandLink value="Delete" action="#{studentManager.deleteStudent(tempStudent)}"/>
+      </h:column>
+    </h:dataTable>
+    <h:commandButton action="Add-student" value="Add a Student" />
+    </h:form>
+	</div>
+</h:body>
+</html>

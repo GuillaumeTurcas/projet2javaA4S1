@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+	<title><ui:insert name = "title">Edit Student</ui:insert></title>
+</head>
+	<body>
+		<div id="content">
+			<ui:insert name="content">
+				<h:form>
+
+					<h:inputHidden value="#{student.id}" title="id" id="id"/><br/>
+
+					<h:outputText value="Student First Name: "/>
+					<h:inputText value="#{student.firstName}" title="firstName" id="firstName"/><br/>
+
+					<h:outputText value="Student Last Name: "/>
+					<h:inputText value="#{student.lastName}" title="lastName" id="lastName"/><br/>
+
+					<h:outputText value="Student Email: "/>
+					<h:inputText value="#{student.email}" title="email" id="email"/><br/>
+
+					<h:commandButton action="#{studentManager.updatesStudent(student)}" value="Save"/>
+
+				</h:form>
+			</ui:insert>
+		</div>
+	</body>
+</html>

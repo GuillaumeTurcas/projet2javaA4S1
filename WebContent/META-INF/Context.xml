@@ -1,0 +1,14 @@
+<Context>
+	<Resource name="jdbc/studentdb" auth="Container"
+	type="javax.sql.DataSource"
+	driverClassName="com.mysql.jdbc.Driver"
+	maxActive="20" maxIdle="5" maxWait="10000"
+	username="root" password="mensa"
+	url="jdbc:mysql://localhost:3306/studentdb? useSSL=false"/>
+	<resource-ref>
+	 <description> WebStudentBook DataSource</description>
+	 <res-ref-name>jdbc/studentdb</res-ref-name>
+	 <res-type>javax.sql.DataSource</res-type>
+	 <res-auth>Container</res-auth>
+	</resource-ref>
+</Context>
